@@ -1,0 +1,33 @@
+#!/usr/bin/expect -f
+
+
+# Check if at least one argument is provided
+if {$argc < 3} {
+    send_user "set_zsh_default.expect received $argc arguments but requires 3..\n";
+    exit 1;
+}
+
+# Set your variables
+set username [lindex $argv 0];
+set password [lindex $argv 1];
+set new_shell [lindex $argv 2];
+
+# Spawn the chsh command
+spawn chsh;
+# Expect the "Password:" prompt and send the password
+expect "Password:";
+send "$password\r";
+# Expect the "Changing the login shell for $username" prompt
+expect "Changing the login shell for $username";
+# Send the new shell path
+send "$new_shell\r";
+# Expect the confirmation prompt
+expect "Do you really want to change the shell for $username?";
+# Send "y" to confirm
+send "y\r";
+# Expect the success message
+expect "Shell changed.";
+
+# Exit expect script
+exit;
+
