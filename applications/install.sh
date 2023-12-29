@@ -34,6 +34,7 @@ function install_code_applications
 
     sudo snap install code --classic;
     sudo snap install android-studio --classic;
+    sudo snap install drawio;
     set_android_studios_zsh_environment_variables;
     set_android_studios_bash_environment_variables;
 }
@@ -61,6 +62,7 @@ function add_applications_to_toolbar
         "spotify_spotify.desktop"
         "android-studio_android-studio.desktop"
         "code_code.desktop"
+        "drawio_drawio.desktop"
     );
 
     gsettings set org.gnome.shell favorite-apps "$(from_array_to_string ${application_array[@]})";
