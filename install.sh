@@ -19,10 +19,10 @@ function get_sudo_password
 
         if echo $sudo_password | sudo -S true;
         then
-            echo "Password is correct.\n Proceeding with the task ...\n";
+            echo "Password is correct.\n Proceeding with the task ...";
             break;
         else
-            echo "Password is incorrect.\n Please insert the correct password ...\n";
+            echo "Password is incorrect.\n Please insert the correct password ...";
         fi
     done
 }
@@ -39,10 +39,10 @@ function reboot_to_apply_changes
             sudo reboot;
         elif [ $answer == "no" ] || [ $answer == "N" ] || [ $answer == "n" ];
         then
-            echo "The changes will be applied after you reboot your system.\n";
+            echo "The changes will be applied after you reboot your system.";
             break;
         else
-            echo "Invalid answer. Please enter yes/Y/y or no/N/n.\n";
+            echo "Invalid answer. Please enter yes/Y/y or no/N/n.";
         fi
     done
 }
@@ -50,20 +50,20 @@ function reboot_to_apply_changes
 get_sudo_password;
 install_required_softwares;
 
-#chmod +x $_GNOME_SHELL_THEME_INSTALLATION_FOLDER/install.sh;
-#bash $_GNOME_SHELL_THEME_INSTALLATION_FOLDER/install.sh; # OK
-#chmod +x $_GIT_INSTALLATION_FOLDER/install.sh;
-#bash $_GIT_INSTALLATION_FOLDER/install.sh; # OK
-#chmod +x $_TERMINAL_INSTALLATION_FOLDER/install.sh;
-#bash $_TERMINAL_INSTALLATION_FOLDER/install.sh $sudo_password; # OK
-#chmod +x $_APPLICATIONS_INSTALLATION_FOLDER/install.sh;
+chmod +x $_GNOME_SHELL_THEME_INSTALLATION_FOLDER/install.sh;
+bash $_GNOME_SHELL_THEME_INSTALLATION_FOLDER/install.sh; # OK
+chmod +x $_GIT_INSTALLATION_FOLDER/install.sh;
+bash $_GIT_INSTALLATION_FOLDER/install.sh; # OK
+chmod +x $_TERMINAL_INSTALLATION_FOLDER/install.sh;
+bash $_TERMINAL_INSTALLATION_FOLDER/install.sh $sudo_password; # OK
+chmod +x $_APPLICATIONS_INSTALLATION_FOLDER/install.sh;
 bash $_APPLICATIONS_INSTALLATION_FOLDER/install.sh; # OK
-#chmod +x $_PROJECTS_INSTALLATION_FOLDER/install.sh;
-#bash $_PROJECTS_INSTALLATION_FOLDER/install.sh; # OK
-#chmod +x $_GNOME_SHELL_EXTENSIONS_INSTALLATION_FOLDER/install.sh;
-#bash $_GNOME_SHELL_EXTENSIONS_INSTALLATION_FOLDER/install.sh;
+chmod +x $_PROJECTS_INSTALLATION_FOLDER/install.sh;
+bash $_PROJECTS_INSTALLATION_FOLDER/install.sh; # OK
+chmod +x $_GNOME_SHELL_EXTENSIONS_INSTALLATION_FOLDER/install.sh;
+bash $_GNOME_SHELL_EXTENSIONS_INSTALLATION_FOLDER/install.sh;
 
-#sudo apt -y update;
-#sudo apt -y upgrade;#
+sudo apt -y update;
+sudo apt -y upgrade;
 
 reboot_to_apply_changes;

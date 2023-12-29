@@ -28,6 +28,15 @@ export NVM_DIR="$HOME/.nvm"\n
 extensions_destination_path="$HOME/.local/share/gnome-shell/extensions";
 extensions_source_path="$_GNOME_SHELL_EXTENSIONS_INSTALLATION_FOLDER/extensions";
 
+
+burn_my_windows_settings_path="/home/eraz/.config/burn-my-windows/profiles";
+burn_my_windows_settings_filename="2000000000000000.conf";
+burn_my_windows_settings=$'
+[burn-my-windows-profile]\n
+fire-enable-effect=false\n
+glitch-enable-effect=true\n
+';
+
 android_studios_environment_variables=$'
 export ANDROID_HOME=$HOME/Android/Sdk\n
 export PATH=$PATH:$ANDROID_HOME/emulator\n
